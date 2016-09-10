@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+
+
+{%block titulo%} Lista de Casas {%endblock titulo%}
+
+{%block content%}
+<h2>
+  Total de Casas en Renta: 
+</h2>
+
+<div class="row">
+
+<div class="row col m8">
+{%for casas in object_list%}
+
+
+
+ 
+        <div class="col s4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="{{casas.foto.url}}">
+              <span class="card-title">{{casas.direccion}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{casas.precio}}</p>
+            </div>
+            <div class="card-action">
+              <a href="{%url 'detail' casas.id%}">Ver más</a>
+            </div>
+          </div>
+        </div>
+ 
+
+
+
+
+{%endfor%}
+</div>
+
+  <div class="col m4">
+    
+  </div>
+  <div class="col m4">
+    
+    {%for direcion in direciones%}
+    <p style="border:1px solid red;">
+      <a href="{%url 'detail' direccion.id%}">
+      {{direccion.modelo}}
+      </a>
+    </p>  
+    {%endfor%}
+  </div>
+
+</div>  <!-- row master-->
+{%endblock content%}

@@ -1,0 +1,62 @@
+{%load static%}
+<html>
+<head>
+	
+	<title>
+		{%block titulo%}
+		CasaRent
+		{%endblock titulo%}
+	</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Estilos propios muy mios, osea de mi mismo <3 -->
+      <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}">
+     
+
+
+</head>
+<body>
+	  <nav class="orange darken-3">
+    <div class="nav-wrapper">
+      <a href="{%url 'list'%}" class="brand-logo">CasaRent</a>
+      <a href="{%url 'list'%}" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">CasaRent</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{%url 'new'%}">Dar de Alta</a></li>
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="{%url 'new'%}">Dar de Alta</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+	<section class="container">
+	{%block content%}
+
+	{%endblock content%}
+	</section>
+
+
+	<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      
+	  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+<script type="text/javascript">
+  {%block scripts%}
+  
+
+{%endblock scripts%}
+</script>
+  
+</body>
+</html>
