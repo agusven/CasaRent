@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Casa(models.Model):
 
 	precio = models.CharField(max_length=140)

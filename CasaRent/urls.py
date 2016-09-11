@@ -7,7 +7,7 @@ from accounts import urls as Accounts_Urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^casas',include(casasUrls, namespace="casas")),
+    url(r'^casas/',include(casasUrls, namespace="casas")),
     url(r'^users/', include(Accounts_Urls, namespace="users")),
     url(
     	regex=r'^media/(?P<path>.*)/$',
