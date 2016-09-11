@@ -28,7 +28,7 @@
               <p>{{casas.precio}}</p>
             </div>
             <div class="card-action">
-              <a href="{%url 'detail' casas.id%}">Ver más</a>
+              <a href="{%url 'casas:detail' casas.id%}">Ver más</a>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
     
     {%for direcion in direciones%}
     <p style="border:1px solid red;">
-      <a href="{%url 'detail' direccion.id%}">
+      <a href="{%url 'casas:detail' direccion.id%}">
       {{direccion.modelo}}
       </a>
     </p>  

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{user_data.username}}</title>
+</head>
+<body>
+	<img src="{{user_data.profile.image_back.url}}" style="width: 100%; max-height:400px;">
+
+	<h3>{{user_data.username}}</h3>
+
+	<img src="{{user_data.profile.image_profile.url}}">
+
+	<h4>Datos</h4>
+	<p>{{user_data.first_name}}</p>
+	<p>{{user_data.last_name}}</p>
+	<p>{{user_data.profile.email}}</p>
+	<p>{{user_data.profile.date_birth}}</p>
+	<p>{{user_data.profile.cellphone_number}}</p>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title> Sign In
+	</title>
+</head>
+<body>
+	<form action="." method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" name="GotoSignIn" value = "Crear usuario">
+	</form>
+</body>
+</html>

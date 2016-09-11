@@ -8,7 +8,7 @@
 <p>Direccion: <span>{{casa.direccion}}</span></p>
 <p>amueblada: <span>{{casa.amueblada}}</span></p>
 <p>foto: <img style="width:100px;" src="{{casa.foto.url}}"></p>
-<a class="btn blue" href="{%url 'update' casa.id%}">Editar</a>
-<a class="btn red" href="{%url 'delete' casa.id%}">Eliminar</a>
+<a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
+<a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
 
 {%endblock content%}

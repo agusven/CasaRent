@@ -3,6 +3,6 @@ from .models import Casa
 
 # Register your models here.
 class CasaAdmin(admin.ModelAdmin):
-	list_display = ['id','precio','direccion','amueblada','servicios','cochera','recamara','plantas','patio','depocito']
+	list_display = ['id','precio','direccion','amueblada','servicios','cochera','recamaras','plantas','patio','deposito']
 
-admin.site.register(Casa, CasaAdmin)
+admin.site.register(Casa)

@@ -15,19 +15,19 @@ class CasaDetail(DetailView):
 
 class CasaCreation(CreateView):
 	model = Casa
-	success_url = reverse_lazy('list')
-	fields = ['precio','direccion','amueblada','servicios','cochera','recamara','plantas','patio','depocito','foto']
+	success_url = reverse_lazy('casas:list')
+	fields = ['precio','direccion','amueblada','servicios','cochera','recamaras','plantas','patio','deposito','foto']
 	template_name = 'casa/casa_form.html'
 
 class CasaUpdate(UpdateView):
 	model = Casa
-	success_url = reverse_lazy('list')
-	fields = ['precio','depocito','foto']
+	success_url = reverse_lazy('casas:list')
+	fields = ['precio','deposito','foto']
 	template_name = 'casa/casa_form.html'
 
 
 class CasaDelete(DeleteView):
 	model =Casa
-	success_url = reverse_lazy('list')
+	success_url = reverse_lazy('casas:list')
 	template_name = 'casa/casa_confirm_delete.html'
 	
