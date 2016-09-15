@@ -22,11 +22,11 @@
 
 </head>
 <body>
-	  <nav class="orange darken-3">
+  <nav class="orange darken-3">
     <div class="nav-wrapper">
       <a href="{%url 'casas:list'%}" class="brand-logo">CasaRent</a>
-      <a href="{%url 'casas:list'%}" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">CasaRent</i></a>
-      <ul class="right hide-on-med-and-down">
+      <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down mobile-demo">
         <li><a href="{%url 'casas:new'%}">Dar de Alta</a></li>
 
       </ul>
@@ -39,24 +39,23 @@
 
 
 	<section class="container">
-	{%block content%}
+    {%block content%}
 
-	{%endblock content%}
+    {%endblock content%}
 	</section>
 
 
-	<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       
-	  <!-- Compiled and minified JavaScript -->
+  <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
-<script type="text/javascript">
-  {%block scripts%}
-  
-
-{%endblock scripts%}
-</script>
+  <script type="text/javascript">
+    {%block scripts%}
+      $(".button-collapse").sideNav();
+    {%endblock scripts%}
+  </script>
   
 </body>
 </html>
