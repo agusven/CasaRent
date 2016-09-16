@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{%load casas_tags%}
 
 
 {%block titulo%} Lista de Casas {%endblock titulo%}
@@ -22,10 +22,13 @@
           <div class="card hoverable">
             <div class="card-image">
               <img src="{{casas.foto.url}}">
-              <span class="card-title">{{casas.direccion}}</span>
+              <span class="card-title">{{casas.municipio}}</span>
             </div>
             <div class="card-content">
-              <p>{{casas.precio}}</p>
+              <p>Renta: <span >{{casas.precio}}</span ></p>
+              <p>Telefono: <span>{{casas.telefono}}</span></p>
+              <p>Amueblada: <span>{{casas.amueblada}}</span></p>
+
             </div>
             <div class="card-action">
               <a href="{%url 'casas:detail' casas.id%}">Ver más</a>
@@ -40,19 +43,15 @@
 {%endfor%}
 </div>
 
-  <div class="col m4">
-    
+
+<div class="col m4">
+   {%colonia%}
   </div>
   <div class="col m4">
-    
-    {%for direcion in direciones%}
-    <p style="border:1px solid red;">
-      <a href="{%url 'casas:detail' direccion.id%}">
-      {{direccion.modelo}}
-      </a>
-    </p>  
-    {%endfor%}
+    {%ultimos 2%}
   </div>
 
 </div>  <!-- row master-->
+
+
 {%endblock content%}

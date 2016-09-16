@@ -1,0 +1,9 @@
+<ul style="border:1px solid orange;">
+	{%for municipio in ultimos_municipios%}
+	<li>
+		<a href="{%url 'detail' municipio.id%}">
+			{{municipio.modelo}}
+		</a>
+	</li>
+	{%endfor%}
+</ul>

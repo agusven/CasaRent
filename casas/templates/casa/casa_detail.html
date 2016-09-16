@@ -4,11 +4,37 @@
 
 <h1>{{casa.model}}</h1>
 
-<p>Precio: <span>{{casa.precio}}</span></p>
-<p>Direccion: <span>{{casa.direccion}}</span></p>
-<p>amueblada: <span>{{casa.amueblada}}</span></p>
-<p>foto: <img style="width:100px;" src="{{casa.foto.url}}"></p>
-<a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
-<a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
+
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{casa.foto.url}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{casa.direccion}}<i class="material-icons right">more_vert</i></span>
+      <p>
+      	<a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
+		<a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
+      </p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Caracteristicas de la casa<i class="material-icons right">close</i></span>
+      <p>Municipio: <span>{{casa.municipio}}</span></p>
+	    <p>Precio: <span>{{casa.precio}}</span></p>
+		<p>Direccion: <span>{{casa.direccion}}</span></p>
+		<p>amueblada: <span>{{casa.amueblada}}</span></p>
+		<p>Telefono: <span>{{casa.telefono}}</span></p>
+		<p>Servicios: <span>{{casa.servicios}}</span></p>
+		<p>Cochera: <span>{{casa.cochera}}</span></p>
+		<p>Recamaras: <span>{{casa.recamaras}}</span></p>
+		<p>Plantas: <span>{{casa.plantas}}</span></p>
+		<p>Patio: <span>{{casa.patio}}</span></p>
+		<p>depocito: <span>{{casa.deposito}}</span></p>
+    <p>Fecha: <span>{{casa.fecha}}</span></p>
+    </div>
+  </div>
+
+
+
+
 
 {%endblock content%}
