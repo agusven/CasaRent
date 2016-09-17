@@ -4,6 +4,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Casa
 from django.core.urlresolvers import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 class Home(ListView):
 	model = Casa
@@ -13,19 +15,21 @@ class CasaDetail(DetailView):
 	model = Casa
 	template_name = 'casa/casa_detail.html'
 
+@method_decorator(login_required, name='dispatch')
 class CasaCreation(CreateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
 	fields = ['municipio','precio','direccion','amueblada','servicios','cochera','recamaras','plantas','patio','deposito','foto','telefono']
 	template_name = 'casa/casa_form.html'
 
+@method_decorator(login_required, name='dispatch')
 class CasaUpdate(UpdateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
 	fields = ['municipio','precio','direccion','amueblada','servicios','cochera','recamaras','plantas','patio','deposito','foto','telefono']
 	template_name = 'casa/casa_form.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class CasaDelete(DeleteView):
 	model =Casa
 	success_url = reverse_lazy('casas:list')

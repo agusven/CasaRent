@@ -1,14 +1,9 @@
-	<!DOCTYPE html>
-<html>
-<head>
-	<title> Sign In
-	</title>
-</head>
-<body>
+{%extends 'base.html'%}
+
+{%block content%}
 	<form action="." method="POST">
 	{% csrf_token %}
 	{{form.as_p}}
-	<input type="submit" name="GotoSignIn" value = "Crear usuario">
+	<input type="submit" name="GotoSignIn" value = "¡Regístrate!">
 	</form>
-</body>
-</html>
+{%endblock content%}

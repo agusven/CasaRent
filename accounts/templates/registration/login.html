@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Ingresa a tu perfil</title>
-</head>
-<body>
+{%extends 'base.html'%}
+
+{%block content%}
 	<div class="login-form">
 		<form action="{%url 'users:login'%}" method="post">
 			{%csrf_token%}
 			{{form.as_p}}
 			
-			<input type="submit" value="Iniciar sesión">
+			<input type="submit"  class="btn btn-mod green" value="Iniciar sesión">
 			<br>
-			<p>No tienes cuenta? Crea una <a href="{%url 'users:signin'%}">aquí</a></p>
+			<p>¿No tienes cuenta? <a href="{%url 'users:signin'%}"  class="btn secondary">¡Regístrate!</a></p>
 		</form>
-	
-</body>
-</html>
+{%endblock content%}

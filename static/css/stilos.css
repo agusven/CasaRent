@@ -1,8 +1,14 @@
+@import "btn.css";
+
 body{
-	background: transparent;
+	background-color: #DFDFDF;
 }
 .ejemplo{
 	width: 200px;
+}
+
+.container{
+	padding:2.5%;
 }
 
 @media(min-width: 1000px){

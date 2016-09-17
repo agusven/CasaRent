@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(mainUrls, namespace="main")),
     url(r'^casas/',include(casasUrls, namespace="casas")),
-    url(r'^users/', include(Accounts_Urls, namespace="users")),
+    url(r'^accounts/', include(Accounts_Urls, namespace="users")),
     url(
     	regex=r'^media/(?P<path>.*)/$',
     	view=serve,
