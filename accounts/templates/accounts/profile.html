@@ -1,22 +1,35 @@
-{%extends 'base.html'%}
+{% extends "base_Forms.html" %}
 
-{%block content%}
-	<img src="{%if request.user.profile.image_back%}{{request.user.profile.image_back.url}}{%endif%}" style="width:100%; max-height:300px;">
-	<img src="{%if request.user.profile.image_profile%}{{request.user.profile.image_profile.url}}{%endif%}" style="width:400px; height=300px;">
+{% block titulo %}
+	Perfil
+{% endblock titulo %}
+
+{% block content %}
+	{%if request.user.profile.image_back%}
+	<img src="{{request.user.profile.image_back.url}}" style="width:100%; max-height:300px;">{%endif%}
+	{%if request.user.profile.image_profile%}
+	<img src="{{request.user.profile.image_profile.url}}" style="width:400px; height=300px;">{%endif%}
+	<div class="row">
+	<div class="nine columns">
 	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
-	<a href="{%url 'users:logout' %}">
-	<button>Cerrar tu sesión</button></a>
+	</div>
+	<div class="three columns right1">
+		<a href="{%url 'users:logout' %}"><button class = "btn secondary">Cerrar tu sesión</button></a>
+	</div>
+	</div>	
 
 	<form action="." method="post" enctype="multipart/form-data">
 		{%csrf_token%}
 		{{userform.as_p}}	
 		{{profileform.as_p}}
-		<input type="submit" value="Actualizar datos">
+		<input type="submit" value="Actualizar datos" class="btn btn-mod green">
 	</form>
-{%endblock content%}
 
-{%block sripts%}
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
 	$(document).ready(function(){
 		$('.imageprofile').removeAttr('required');
 	});
-{%endblock sripts%}
+</script>
+
+{% endblock content %}

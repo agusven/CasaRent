@@ -4,15 +4,18 @@ from ..models import Casa
 register = template.Library()
 
 @register.simple_tag
-def colonia():
-	return Casa.objects.get(id=1).municipio
-
-#@register.inclusion_tag('casa/tag.html')
-#def ultimo(count=2):
-	#ultimos_municipios = Casa.objects.all().order_by('fecha')[:count]
-	#return {'ultimos_municipios':ultimos_municipios}
-
+def numCasas():
+	return Casa.objects.all().count()
 
 @register.assignment_tag
 def ultimos(count=3):
 	return Casa.objects.all().order_by('-fecha')[:count]
+
+
+@register.assignment_tag(takes_context=True)
+def cerca_de_ti(context, count=3):
+	request = context['request']
+	municipio = request.user.profile.municipio
+	var = Casa.objects.filter(municipio=municipio).order_by('-fecha')[:count]
+	return var 
+

@@ -35,6 +35,20 @@ body{
 	padding-left: 10px;
 }
 
+.imagen-carta{
+	min-height: 200px;
+	opacity: 0.6;
+}
+
+.right1{
+	text-align: right;
+	padding-top: 20px;
+}
+
+.none-url-dec{
+text-decoration: none;
+}
+
 .slogan{
 	color: white; 
 	*/*position: absolute;

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block titulo %}
+			
+		{% endblock titulo %}
+	</title>
+	<link rel="icon" type="image/x-icon" href="{%static 'CasaRentFav.png' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/stilos.css'%}">
+</head>
+<body class="backgroundBlanco">
+	<header >
+	<div class="row">
+		<div class="two columns navbarFormCasas">
+		<h5 class="bold"><a href="{%url 'main:home'%}">CasaRent</h5></a>
+		</div>
+		<div class="two columns navbarFormCasas" style="color:transparent;">Addksfjsd</div>
+		<div class="two columns navbarFormCasas">
+			<h5><a href="{%url 'casas:list'%}">Casas Disponibles</h5></a>
+		</div>
+		{% if request.user.is_authenticated %}
+			<div class="two columns navbarFormCasas">
+				<h5><a href="{%url 'casas:new'%}">Dar de alta</h5></a>
+			</div>
+			<div class="two columns navbarFormCasas">
+				<h5><a href="{%url 'users:profile'%}">Mi perfil</h5></a>
+			</div>
+			<div class="two columns navbarFormCasas">
+				<h5><a href="{%url 'users:logout'%}">Cerrar sesión</h5></a>
+			</div>
+		{% else %}
+			<div class="two columns navbarFormCasas">
+				<h5><a href="{%url 'users:login'%}">Iniciar sesión</h5></a>
+			</div>
+			<div class="two columns navbarFormCasas">
+				<h5><a href="{%url 'users:signin'%}">Registrarse</h5></a>
+			</div>
+		{% endif %}
+		
+
+	</div>
+	</header>
+	{% block content %}
+		
+	{% endblock content %}
+
+</body>
+</html>

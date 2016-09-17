@@ -1,5 +1,8 @@
 {%extends 'base.html'%}
 
+  {% block titulo %}
+    Casa Rent - Detalle
+  {% endblock titulo %}
 {%block content%}
 
 <h1>{{casa.model}}</h1>
@@ -10,26 +13,30 @@
       <img class="activator" src="{{casa.foto.url}}">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{casa.direccion}}<i class="material-icons right">more_vert</i></span>
+      <span class="card-title activator grey-text text-darken-4"><b>Propietario: <a href="{% url 'users:user-profile' casa.propietario%}" class="none-url-dec">{{casa.propietario}}</a></b><i class="material-icons right">more_vert</i></span>
+      
+      {% if  request.user == casa.propietario%}
       <p>
-      	<a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
-		<a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
+        <a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
+        <a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
       </p>
+      {% endif %}
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Caracteristicas de la casa<i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4"><b>Caracteristicas de la casa</b><i class="material-icons right">close</i></span>
+      <p>Propietario: <span>{{casa.propietario}}</span></p>
       <p>Municipio: <span>{{casa.municipio}}</span></p>
-	    <p>Precio: <span>{{casa.precio}}</span></p>
-		<p>Direccion: <span>{{casa.direccion}}</span></p>
-		<p>amueblada: <span>{{casa.amueblada}}</span></p>
-		<p>Telefono: <span>{{casa.telefono}}</span></p>
-		<p>Servicios: <span>{{casa.servicios}}</span></p>
-		<p>Cochera: <span>{{casa.cochera}}</span></p>
-		<p>Recamaras: <span>{{casa.recamaras}}</span></p>
-		<p>Plantas: <span>{{casa.plantas}}</span></p>
-		<p>Patio: <span>{{casa.patio}}</span></p>
-		<p>depocito: <span>{{casa.deposito}}</span></p>
-    <p>Fecha: <span>{{casa.fecha}}</span></p>
+      <p>Precio: <span>{{casa.precio}}</span></p>
+      <p>Dirección: <span>{{casa.dirección}}</span></p>
+      <p>Amueblada: <span>{{casa.amueblada}}</span></p>
+      <p>Teléfono: <span>{{casa.teléfono}}</span></p>
+      <p>Servicios: <span>{{casa.servicios}}</span></p>
+      <p>Cochera: <span>{{casa.cochera}}</span></p>
+      <p>Recámaras: <span>{{casa.recámaras}}</span></p>
+      <p>Plantas: <span>{{casa.plantas}}</span></p>
+      <p>Patio: <span>{{casa.patio}}</span></p>
+      <p>Depósito: <span>{{casa.depósito}}</span></p>
+      <p>Fecha: <span>{{casa.fecha}}</span></p>
     </div>
   </div>
 

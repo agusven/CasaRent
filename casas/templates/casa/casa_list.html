@@ -6,16 +6,19 @@
 {%block titulo%} Lista de Casas {%endblock titulo%}
 
 {%block content%}
+<section>
+
+<article>
 <h3>
-  Total de Casas en Renta: 
+  Total de Casas en Renta: {%numCasas%}
 </h3>
 {%for casas in object_list%}
 
   <div class="col s4">
     <div class="card hoverable">
       <div class="card-image">
-        <img src="{{casas.foto.url}}">
-        <span class="card-title">{{casas.propietario}}</span>
+        <img class="imagen-carta" src="{{casas.foto.url}}">
+         <h6 class="card-title black-text darken-4"><b>{{casas.propietario}}</b></h6>
       </div>
       <div class="card-content">
         <p>Renta: <span >{{casas.precio}}</span ></p>
@@ -28,8 +31,37 @@
       </div>
     </div>
   </div>
- 
 {%endfor%}
+</article>
 
+<article>
+{% if request.user.is_authenticated %}
+
+  <h2>Cerca de ti:</h2>
+  <div class="row">
+  {%cerca_de_ti as cerca%}
+  {% for casa in cerca %}
+    <div class="col s3">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img class="imagen-carta" src="{{casa.foto.url}}">
+              <span class="card-title black-text darken-4"><b>{{casa.propietario}}</b></span>
+            </div>
+            <div class="card-content">
+              <p>Renta: <span >{{casa.precio}}</span ></p>
+              <p>Telefono: <span>{{casa.teléfono}}</span></p>
+              <p>Amueblada: <span>{{casa.amueblada}}</span></p>
+
+            </div>
+            <div class="card-action">
+              <a href="{%url 'casas:detail' casa.id%}">Ver más</a>
+            </div>
+          </div>
+        </div>
+  {% endfor %}  
+  </div>
+{% endif %}
+</article>
+</section>
 
 {%endblock content%}
