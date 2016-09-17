@@ -19,19 +19,23 @@ class CasaDetail(DetailView):
 class CasaCreation(CreateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
-	fields = ['direccion','municipio','telefono','precio','servicios','recamaras','plantas','amueblada','cochera','patio','deposito','foto']
+	fields = ['dirección','municipio','teléfono','precio','servicios','recámaras','plantas','amueblada','cochera','patio','depósito','foto']
 	template_name = 'casa/casa_form.html'
+
+	def form_valid(self, form):
+		form.instance.propietario = self.request.user
+		return super(CasaCreation, self).form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class CasaUpdate(UpdateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
-	fields = ['municipio','precio','direccion','amueblada','servicios','cochera','recamaras','plantas','patio','deposito','foto','telefono']
+	fields = ['dirección','municipio','teléfono','precio','servicios','recámaras','plantas','amueblada','cochera','patio','depósito','foto']
 	template_name = 'casa/casa_form.html'
 
 @method_decorator(login_required, name='dispatch')
 class CasaDelete(DeleteView):
-	model =Casa
+	model = Casa
 	success_url = reverse_lazy('casas:list')
 	template_name = 'casa/casa_confirm_delete.html'
 	

@@ -10,7 +10,7 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-
+  <link rel="icon" type="image/x-icon" href="{%static 'CasaRentFav.png' %}">
 	  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <!--Import Google Icon Font-->
@@ -22,10 +22,18 @@
 <body>
   <nav class="orange darken-3">
     <div class="nav-wrapper">
-      <a href="{%url 'casas:list'%}" class="brand-logo">CasaRent</a>
+      <a href="{%url 'main:home'%}" class="brand-logo">CasaRent</a>
       <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down mobile-demo">
+        <li><a href="{%url 'casas:list'%}">Casas disponbiles</a></li>
         <li><a href="{%url 'casas:new'%}">Dar de Alta</a></li>
+        <!--<li><a href="{%url 'casas:new'%}">Editar mis Casas</a></li>-->
+        {% if request.user.is_authenticated %}
+          <li><a href="{%url 'users:logout'%}">Cerrar sesión</a></li>
+        {% else %}
+          <li><a href="{%url 'users:login'%}">Iniciar sesión</a></li>
+          <li><a href="{%url 'users:signin'%}">Dar de Alta</a></li>
+        {% endif %}
 
       </ul>
       <ul class="side-nav" id="mobile-demo">

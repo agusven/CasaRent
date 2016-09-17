@@ -3,8 +3,11 @@
 body{
 	background-color: #DFDFDF;
 }
+.backgroundBlanco{
+	background-color: #fff;
+}
 .ejemplo{
-	width: 200px;
+	width: 0px;
 }
 
 .container{
@@ -15,4 +18,18 @@ body{
 	.ejemplo{
 		width: 100%;
 	}
+}
+
+.navbarFormCasas a{
+	color: #ef6c00;
+	text-align: center;
+	text-decoration: none;	
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.padding-left{
+	padding-left: 10px;
 }
