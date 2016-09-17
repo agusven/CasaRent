@@ -11,7 +11,7 @@ body{
 	width: 0px;
 }
 
-.container{
+.container, .cont{
 	padding:2.5%;
 }
 
@@ -37,24 +37,64 @@ body{
 
 .slogan{
 	color: white; 
-	position: absolute;
+	*/*position: absolute;
 	width: 50%;
-	height: 50%;
-	text-align: center;
+	height: 50%;*/
+	text-align: center !important;
+	padding-top:70px !important;
+	padding-bottom:70px !important;
+	/*
 	top:0;
 	left:0;
 	right:0;
 	bottom:0;
-	margin:auto;
+	margin:auto;*/
+	transition: .3s;
 }
 
 .nav{
 	background-color: white;
+	border-bottom: 1px solid #C7C9E1;
 }
-.row{
+.row.barra{
 	margin:0px !important;
 }
-li{
-	border-left: 1px solid #E0E2F7;
+.nav ul a{
+	border-left: 1px solid #C7C9E1;
 	padding: 20px !important;
+	color: #212121;
+}
+
+.nav ul a:hover{
+	border-bottom: 5px solid #ef6c00;
+	padding-bottom: 15px !important; 
+}
+
+.top-space{
+	margin-top: 20px; 
+}
+
+.left-space{
+	margin-left: 20px;
+}
+
+nav{
+	box-shadow: none !important;
+	border-bottom: 2px solid #e64a19;
+}
+
+.card{
+	box-shadow: none;
+	border: 1px solid #C7C9E1;
+}
+.card-action{
+	border-color: #C7C9E1 !important;
+}
+.card:hover{
+	box-shadow: none;
+	border-color: #ffcc80;
+}
+
+.card:hover .card-action{
+	border-color: #ffcc80 !important;
 }

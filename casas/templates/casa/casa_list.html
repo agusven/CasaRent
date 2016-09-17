@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 {%load casas_tags%}
 
@@ -6,9 +6,9 @@
 {%block titulo%} Lista de Casas {%endblock titulo%}
 
 {%block content%}
-<h2>
+<h3>
   Total de Casas en Renta: 
-</h2>
+</h3>
 {%for casas in object_list%}
 
   <div class="col s4">

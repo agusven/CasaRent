@@ -17,42 +17,68 @@
 </head>
 <body>
 	
-	<div class="parallax-container" style="height:250px">
+	<div class="parallax-container" style="height:auto;" class="row">
     <div class="parallax" style="height:400px;"><img src="{%static 'back.jpg'%}"></div>
-    <h1 class="slogan">Las mejores casas</h1>
+    <div class="block row">
+    	<!--<h1 class="col m4 white-text">CasaRent</h1>-->
+    	<h1 class="slogan col m5 offset-m4">Las mejores casas</h1>
+    	{% if request.user.is_authenticated %}
+				<a href="{%url 'users:logout'%}" class="col s1 btn btn-mod top-space">LogOut</a>
+    		<a href="{%url 'users:profile'%}" class="col s1 btn btn-mod btn-nav primary top-space">Dashboard</a>
+    	{%else%}
+    		<a href="{%url 'users:login'%}" class="col s1 btn btn-mod top-space">LogIn</a>
+    		<a href="{%url 'users:signin'%}" class="col s1 btn btn-mod btn-nav primary top-space">Regístrate</a>
+    	{%endif%}
+    </div>
   </div>
   <div class="nav">
-  	<ul class="row">
-  		<li class="col m4 center">Nuevas</li>
-  		<li class="col m4 center">Mejor Votadas</li>
-  		<li class="col m4 center">Más Rentadas</li>
+  	<ul class="row barra">
+  		<a href="#nuevas" class="col m4 center">Nuevas</a>
+  		<a href="#" class="col m4 center">Mejor Votadas</a>
+  		<a href="{%url 'casas:list'%}" class="col m4 center">Todas</a>
   	</ul>
   </div>
 
-  <div id="nuevas" class="row container">
-  	<h3>Las casas más recientes</h3>
-  	{%ultimos as nuevas%}
-  	{%for casa in nuevas%}
-			
-			<div class="col s4">
+  <div id="container" class="row cont">
+  	<div class="row" id="nuevas">
+  		<h4>Lo más reciente</h4>
+	  	{%ultimos as nuevas%}
+	  	{%for casa in nuevas%}
+				
+				<div class="col s3">
+			    <div class="card hoverable">
+			      <div class="card-image">
+			        <img src="{{casa.foto.url}}">
+			        <span class="card-title">{{casa.propietario}}</span>
+			      </div>
+			      <div class="card-content">
+			        <p>Renta: <span >{{casa.precio}}</span ></p>
+			        <p>Telefono: <span>{{casa.teléfono}}</span></p>
+			        <p>Amueblada: <span>{{casa.amueblada}}</span></p>
+
+			      </div>
+			      <div class="card-action">
+			        <a href="{%url 'casas:detail' casa.id%}">Ver más</a>
+			      </div>
+			    </div>
+			  </div>
+
+	  	{%endfor%}
+	  	<div class="col s3">
 		    <div class="card hoverable">
 		      <div class="card-image">
-		        <img src="{{casa.foto.url}}">
-		        <span class="card-title">{{casa.propietario}}</span>
+		        <img src="{%static 'back.jpg'%}">
+		        <span class="card-title">¿Eres Nuevo?</span>
 		      </div>
 		      <div class="card-content">
-		        <p>Renta: <span >{{casa.precio}}</span ></p>
-		        <p>Telefono: <span>{{casa.teléfono}}</span></p>
-		        <p>Amueblada: <span>{{casa.amueblada}}</span></p>
-
+		        ¡Unete a nuestra comunidad!
 		      </div>
 		      <div class="card-action">
-		        <a href="{%url 'casas:detail' casa.id%}">Ver más</a>
+		        <a href="#">Saber Más</a>
 		      </div>
 		    </div>
 		  </div>
-
-  	{%endfor%}
+  	</div>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -61,6 +87,16 @@
 		$(document).ready(function(){
     	$('.parallax').parallax();
   	});
+
+  	$(document).on("scroll", function(){
+      var scroll = $(document).scrollTop();
+      
+      if(scroll>=5){
+      	$(".slogan").css({'padding-top':'20px !impotant','padding-bottom':'0px !impotant'});
+      }else{
+      	$(".slogan").css({'padding-top':'70px !impotant','padding-bottom':'70px !impotant'});	
+      }
+    });
   </script>
 
 </body>

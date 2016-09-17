@@ -1,5 +1,6 @@
 .btn-mod{
-	background-color: white !important;	
+	background-color: transparent !important;
+	border: 1px solid #E0E2F7;
 }
 
 .btn-mod.green{
@@ -16,4 +17,10 @@
 .btn-mod.green:hover{
 	color: white;
 	background-color: #36C900 !important;
+}
+
+.btn-mod.btn-nav.primary{
+	color: white;
+	background-color: rgba(225,226,247,.3) !important;	
+	border: 1px solid #E0E2F7;
 }
