@@ -41,8 +41,8 @@ body{
 	width: 50%;
 	height: 50%;*/
 	text-align: center !important;
-	padding-top:70px !important;
-	padding-bottom:70px !important;
+	padding-top:80px;
+	padding-bottom:80px;
 	/*
 	top:0;
 	left:0;
@@ -50,6 +50,8 @@ body{
 	bottom:0;
 	margin:auto;*/
 	transition: .3s;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
 }
 
 .nav{
@@ -97,4 +99,13 @@ nav{
 
 .card:hover .card-action{
 	border-color: #ffcc80 !important;
+}
+
+.fixed{
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+.debajo{
+	height:320px;
 }
