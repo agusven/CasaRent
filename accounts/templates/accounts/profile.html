@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>perfil Sexy hat</title>
-</head>
-<body>
+{%extends 'base.html'%}
+
+{%block content%}
 	<img src="{%if request.user.profile.image_back%}{{request.user.profile.image_back.url}}{%endif%}" style="width:100%; max-height:300px;">
 	<img src="{%if request.user.profile.image_profile%}{{request.user.profile.image_profile.url}}{%endif%}" style="width:400px; height=300px;">
 	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
@@ -16,11 +13,10 @@
 		{{profileform.as_p}}
 		<input type="submit" value="Actualizar datos">
 	</form>
-</body>
-</html>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
+{%endblock content%}
+
+{%block sripts%}
 	$(document).ready(function(){
 		$('.imageprofile').removeAttr('required');
 	});
-</script>
+{%endblock sripts%}

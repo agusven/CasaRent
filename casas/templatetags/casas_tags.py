@@ -15,4 +15,4 @@ def colonia():
 
 @register.assignment_tag
 def ultimos(count=2):
-	return Casa.objects.all().order_by('fecha')[count:]
+	return Casa.objects.all().order_by('-fecha')[count:]

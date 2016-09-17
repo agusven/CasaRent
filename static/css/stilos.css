@@ -1,8 +1,9 @@
 @import "btn.css";
 
 body{
-	background-color: #DFDFDF;
+	background-color: #E0E2F7;
 }
+
 .backgroundBlanco{
 	background-color: #fff;
 }
@@ -32,4 +33,28 @@ body{
 
 .padding-left{
 	padding-left: 10px;
+}
+
+.slogan{
+	color: white; 
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	text-align: center;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+
+.nav{
+	background-color: white;
+}
+.row{
+	margin:0px !important;
+}
+li{
+	border-left: 1px solid #E0E2F7;
+	padding: 20px !important;
 }

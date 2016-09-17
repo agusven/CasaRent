@@ -1,7 +1,67 @@
-{%extends 'base.html'%}
+{%load static%}
+{%load casas_tags%}
 
-{%block content%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>¡Bienvenido!</title>
+	<meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="{%static 'CasaRentFav.jpeg' %}">
+	  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{%static 'css/stilos.css'%}">
+</head>
+<body>
 	
-	<h1>Hola</h1>
+	<div class="parallax-container" style="height:250px">
+    <div class="parallax" style="height:400px;"><img src="{%static 'back.jpg'%}"></div>
+    <h1 class="slogan">Las mejores casas</h1>
+  </div>
+  <div class="nav">
+  	<ul class="row">
+  		<li class="col m4 center">Nuevas</li>
+  		<li class="col m4 center">Mejor Votadas</li>
+  		<li class="col m4 center">Más Rentadas</li>
+  	</ul>
+  </div>
 
-{%endblock content%}
+  <div id="nuevas" class="row container">
+  	<h3>Las casas más recientes</h3>
+  	{%ultimos as nuevas%}
+  	{%for casa in nuevas%}
+			
+			<div class="col s4">
+		    <div class="card hoverable">
+		      <div class="card-image">
+		        <img src="{{casa.foto.url}}">
+		        <span class="card-title">{{casa.propietario}}</span>
+		      </div>
+		      <div class="card-content">
+		        <p>Renta: <span >{{casa.precio}}</span ></p>
+		        <p>Telefono: <span>{{casa.teléfono}}</span></p>
+		        <p>Amueblada: <span>{{casa.amueblada}}</span></p>
+
+		      </div>
+		      <div class="card-action">
+		        <a href="{%url 'casas:detail' casa.id%}">Ver más</a>
+		      </div>
+		    </div>
+		  </div>
+
+  	{%endfor%}
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+    	$('.parallax').parallax();
+  	});
+  </script>
+
+</body>
+</html>
