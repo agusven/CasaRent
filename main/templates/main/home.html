@@ -25,7 +25,7 @@
     	<h1 class="slogan col m5 offset-m4">Las mejores casas</h1>
     	{% if request.user.is_authenticated %}
 				<a href="{%url 'users:logout'%}" class="col s1 btn btn-mod top-space">LOGOUT</a>
-    		<a href="{%url 'users:profile'%}" class="col s1 btn btn-mod btn-nav primary top-space">DASBOARD</a>
+    		<a href="{%url 'users:profile'%}" class="col s1 btn btn-mod btn-nav primary top-space">DASHBOARD</a>
     	{%else%}
     		<a href="{%url 'users:login'%}" class="col s1 btn btn-mod top-space">LOGIN</a>
     		<a href="{%url 'users:signin'%}" class="col s1 btn btn-mod btn-nav primary top-space">REGÍSTRATE</a>

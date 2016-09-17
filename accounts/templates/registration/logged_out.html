@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block titulo %}
+	Hasta luego!
+{% endblock titulo %}
+
+{% block content %}
 	<h1>Sesión cerrada</h1>
 <p>Tu sesión se ha cerrado con éxito.</p>
-<p>Pero puedes volver a entrar aquí <a href="{%url 'users:login'%}">Entrar</a></p>
-</body>
-</html>
+<p>Pero puedes volver a entrar aquí: <a href="{%url 'users:login'%}"  class="btn btn-mod green">Entrar</a></p>
+{% endblock content %}
