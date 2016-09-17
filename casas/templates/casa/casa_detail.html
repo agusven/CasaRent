@@ -13,9 +13,9 @@
   <p class="col s12">Propietario: 
     <div class="chip">
       {%if casa.propietario.profile.image_profile%}
-      <img src="{{casa.propietario.image_profile}}" alt="Contact Person">
+      <img src="{{casa.propietario.profile.image_profile.url}}" alt="Contact Person">
       {%endif%}
-      {{casa.propietario.username}}
+      <a href="{%url 'users:user-profile' casa.propietario%}">{{casa.propietario.username}}</a>
     </div>
   </p>
   <p class="col s12 m6">Municipio: <b>{{casa.municipio}}</b></p>

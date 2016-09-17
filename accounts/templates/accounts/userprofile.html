@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{user_data.username}}</title>
-</head>
-<body>
-	<img src="{{user_data.profile.image_back.url}}" style="width: 100%; max-height:400px;">
+{% extends "base.html" %}
 
-	<h3>{{user_data.username}}</h3>
+	{% block titulo %}
+		{{user_data.username}}
+	{% endblock titulo %}
 
-	<img src="{{user_data.profile.image_profile.url}}">
+	{% block content %}
+		{%if request.user.profile.image_back%}
+			<img src="{{user_data.profile.image_back.url}}" style="width: 100%; max-height:400px;">
+		{% endif %}
+		<div class="container">
+		<div class="row">
+		<div class="col l7 m12 s12" style="padding-top: 10%;">
+			<h3>{{user_data.username}}</h3>
+		</div>
+		<div class="col l5 m12 s12">
+		{% if request.user.profile.image_profile %}
+			<img class="responsive-img"src="{{user_data.profile.image_profile.url}}">
+		{% endif %}
+		</div>
+		</div>
+		</div>
 
-	<h4>Datos</h4>
-	<p>{{user_data.first_name}}</p>
-	<p>{{user_data.last_name}}</p>
-	<p>{{user_data.profile.email}}</p>
-	<p>{{user_data.profile.date_birth}}</p>
-	<p>{{user_data.profile.cellphone_number}}</p>
+		<h4 style="color:#ef6c00; text-align:center;">Información del usuario</h4>
+		<br>
+		<div class="row">
+		<div class="col l6 m12 s12">
+			<h5><span class="blue-text darken-4">Nombre: </span>{{user_data.first_name}} {{user_data.last_name}}</h5>
+			<br>
+			<h5><span class="blue-text darken-4">Teléfono: </span>{{user_data.profile.cellphone}}</h5>
+		</div>
+		
+		<div class="col l6 m12 s12"></div>
+			<h5><span class="blue-text darken-4">Correo electrónico: </span>{{user_data.email}}</h5>
+			<br>
+			<h5><span class="blue-text darken-4">Fecha de nacimiento: </span>{{user_data.profile.date_birth}}</h5>
+		</div>
 
-
-</body>
-</html>
+	{% endblock content %}
