@@ -22,4 +22,8 @@ class Casa(models.Model):
 	def __str__(self):
 		return '{} la {} casa esta en: {}'.format(self.dirección,self.depósito,self.recámaras,self.teléfono,self.municipio)
 
+	class Meta:
+		ordering=('fecha',)
+
+
 # secretballot.enable_voting_on(Casa)	

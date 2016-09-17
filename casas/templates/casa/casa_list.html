@@ -5,6 +5,15 @@
 
 {%block titulo%} Lista de Casas {%endblock titulo%}
 
+{% block estilos %}
+  .imagen-carta{
+  max-height: 300px !important;
+  }  
+
+  .row{
+  position: relative;
+  }
+{% endblock estilos %}
 {%block content%}
 <section>
 
@@ -12,9 +21,10 @@
 <h3>
   Total de Casas en Renta: {%numCasas%}
 </h3>
+<div class="row">
 {%for casas in object_list%}
 
-  <div class="col s4">
+  <div class="col s4 l4 m4">
     <div class="card hoverable">
       <div class="card-image">
         <img class="imagen-carta" src="{{casas.foto.url}}">
@@ -32,6 +42,7 @@
     </div>
   </div>
 {%endfor%}
+</div>
 </article>
 
 
