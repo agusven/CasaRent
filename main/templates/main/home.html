@@ -35,7 +35,7 @@
   <div class="nav">
   	<ul class="row barra">
   		<a href="#nuevas" class="col m4 center">Nuevas</a>
-  		<a href="#" class="col m4 center">Mejor Votadas</a>
+  		<a href="#cerca" class="col m4 center">Cerca de ti</a>
   		<a href="{%url 'casas:list'%}" class="col m4 center">Todas</a>
   	</ul>
   </div>
@@ -71,22 +71,55 @@
 			  </div>
 
 	  	{%endfor%}
-	  	<div class="col s3">
+	  	{%if not request.user.is_authenticated%}
+				<div class="col s3">
+			    <div class="card hoverable">
+			      <div class="card-image">
+			        <img src="{%static 'back.jpg'%}">
+			        <span class="card-title">¿Eres Nuevo?</span>
+			      </div>
+			      <div class="card-content">
+			        ¡Unete a nuestra comunidad!
+			      </div>
+			      <div class="card-action">
+			        <a href="#">Saber Más</a>
+			      </div>
+			    </div>
+			  </div>
+	  	{%endif%}
+  	</div>
+
+	{% if request.user.is_authenticated %}
+
+	<h4>Cerca de ti:</h4>
+	<div class="row" id="cerca">
+		{%cerca_de_ti as cerca%}
+		{% for casa in cerca %}
+		  <div class="col s3">
 		    <div class="card hoverable">
 		      <div class="card-image">
-		        <img src="{%static 'back.jpg'%}">
-		        <span class="card-title">¿Eres Nuevo?</span>
+		        <img class="imagen-carta" src="{{casa.foto.url}}">
+		        <span class="card-title">{{casa.propietario}}</span>
 		      </div>
 		      <div class="card-content">
-		        ¡Unete a nuestra comunidad!
+		        <p>Renta: <span >{{casa.precio}}</span ></p>
+		        <p>Telefono: <span>{{casa.teléfono}}</span></p>
+		        <p>Amueblada: <span>{{casa.amueblada}}</span></p>
 		      </div>
 		      <div class="card-action">
-		        <a href="#">Saber Más</a>
+		        <a href="{%url 'casas:detail' casa.id%}">Ver más</a>
 		      </div>
 		    </div>
 		  </div>
-  	</div>
+		{% endfor %}  
+	</div>
+	{% endif %}
+
   </div>
+
+<article class="col s12">
+
+</article>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>

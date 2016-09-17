@@ -43,12 +43,12 @@ class Profile2(View):
 		template_name = "accounts/profile.html"
 		updateUser_form = EditUserForm(data=request.POST, instance=request.user)
 		updateProfile_form = EditProfileForm(data=request.POST, instance=request.user.profile, files=request.FILES)
-		if updateUser_form.is_valid():
+		if updateUser_form.is_valid() and updateProfile_form.is_valid():
 			updateUser = updateUser_form.save(commit=False)
 			updateUser.save()
-		if updateProfile_form.is_valid():
 			updateProfile = updateProfile_form.save(commit=False)
 			updateProfile.save()
+			
 		return redirect('users:profile')
 
 class UserProfile(View):

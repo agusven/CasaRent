@@ -9,7 +9,7 @@ def numCasas():
 
 @register.assignment_tag
 def ultimos(count=3):
-	return Casa.objects.all().order_by('-fecha')[:count]
+	return Casa.objects.all().order_by('-fecha')[count:]
 
 
 @register.assignment_tag(takes_context=True)

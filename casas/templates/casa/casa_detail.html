@@ -1,47 +1,35 @@
 {%extends 'base.html'%}
 
-  {% block titulo %}
-    Casa Rent - Detalle
-  {% endblock titulo %}
+{% block titulo %}
+  Casa Rent - Detalle
+{% endblock titulo %}
 {%block content%}
 
-<h1>{{casa.model}}</h1>
+<h2 class="col s12">Casa en: {{casa.dirección}}, {{casa.municipio}}</h2>
 
 
-<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{casa.foto.url}}">
+<img class="col s12 m6 materialboxed" src="{{casa.foto.url}}" style="max-width:100%;">
+<div class="col s12 m6">
+  <p class="col s12">Propietario: 
+    <div class="chip">
+      {%if casa.propietario.profile.image_profile%}
+      <img src="{{casa.propietario.image_profile}}" alt="Contact Person">
+      {%endif%}
+      {{casa.propietario.username}}
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><b>Propietario: <a href="{% url 'users:user-profile' casa.propietario%}" class="none-url-dec">{{casa.propietario}}</a></b><i class="material-icons right">more_vert</i></span>
-      
-      {% if  request.user == casa.propietario%}
-      <p>
-        <a class="btn blue" href="{%url 'casas:update' casa.id%}">Editar</a>
-        <a class="btn red" href="{%url 'casas:delete' casa.id%}">Eliminar</a>
-      </p>
-      {% endif %}
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><b>Caracteristicas de la casa</b><i class="material-icons right">close</i></span>
-      <p>Propietario: <span>{{casa.propietario}}</span></p>
-      <p>Municipio: <span>{{casa.municipio}}</span></p>
-      <p>Precio: <span>{{casa.precio}}</span></p>
-      <p>Dirección: <span>{{casa.dirección}}</span></p>
-      <p>Amueblada: <span>{{casa.amueblada}}</span></p>
-      <p>Teléfono: <span>{{casa.teléfono}}</span></p>
-      <p>Servicios: <span>{{casa.servicios}}</span></p>
-      <p>Cochera: <span>{{casa.cochera}}</span></p>
-      <p>Recámaras: <span>{{casa.recámaras}}</span></p>
-      <p>Plantas: <span>{{casa.plantas}}</span></p>
-      <p>Patio: <span>{{casa.patio}}</span></p>
-      <p>Depósito: <span>{{casa.depósito}}</span></p>
-      <p>Fecha: <span>{{casa.fecha}}</span></p>
-    </div>
-  </div>
-
-
-
-
+  </p>
+  <p class="col s12 m6">Municipio: <b>{{casa.municipio}}</b></p>
+  <p class="col s12 m6">Precio: <b>{{casa.precio}}</b></p>
+  <p class="col s12 m6">Dirección: <b>{{casa.dirección}}</b></p>
+  <p class="col s12 m6">Amueblada: <b>{{casa.amueblada}}</b></p>
+  <p class="col s12 m6">Teléfono: <b>{{casa.teléfono}}</b></p>
+  <p class="col s12 m6">Servicios: <b>{{casa.servicios}}</b></p>
+  <p class="col s12 m6">Cochera: <b>{{casa.cochera}}</b></p>
+  <p class="col s12 m6">Recámaras: <b>{{casa.recámaras}}</b></p>
+  <p class="col s12 m6">Plantas: <b>{{casa.plantas}}</b></p>
+  <p class="col s12 m6">Patio: <b>{{casa.patio}}</b></p>
+  <p class="col s12 m6">Depósito: <b>{{casa.depósito}}</b></p>
+  <p class="col s12 m6">Fecha: <b>{{casa.fecha}}</b></p>
+</div>
 
 {%endblock content%}
