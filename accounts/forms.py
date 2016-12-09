@@ -25,10 +25,15 @@ class EditUserForm(forms.ModelForm):
 		fields = ['first_name','last_name','email']
 
 class EditProfileForm(forms.ModelForm):
-	cellphone = forms.CharField(label="Teléfono")
+	cellphone = forms.CharField(label="Teléfono", widget=forms.TextInput(attrs={'type':'number'}))
 	#date_birth = forms.CharField(label='Fecha de Nacimiento', widget=forms.TextInput(attrs={'required':'false'}))
+	class Meta:
+		model = Profile
+		fields = ['municipio','cellphone']
+
+class EditProfileImagesForm(forms.ModelForm):
 	image_back = forms.ImageField(label = 'Foto de portada', widget=forms.FileInput(attrs={'class': 'imageprofile','required':'false'}))
 	image_profile = forms.ImageField(label = 'Foto de perfil', widget=forms.FileInput(attrs={'class': 'imageprofile','required':'false'}))
 	class Meta:
 		model = Profile
-		fields = ['municipio','cellphone','image_back', 'image_profile']
+		fields = ['image_back','image_profile']

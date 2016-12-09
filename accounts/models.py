@@ -6,7 +6,6 @@ class Profile(models.Model):
 		user = models.OneToOneField(User)
 		municipio = models.CharField(max_length=140,blank=True,null=True)
 		cellphone = models.IntegerField(blank=True, null=True)
-		date_birth = models.DateField(blank=True, null=True)
 		image_back = models.ImageField(upload_to="user/back", blank=True, null=True)
 		image_profile = models.ImageField(upload_to="user/profile", blank=True, null=True)
 
