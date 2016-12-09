@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^', include(mainUrls, namespace="main")),
     url(r'^casas/',include(casasUrls, namespace="casas")),
     url(r'^accounts/', include(Accounts_Urls, namespace="users")),
+    url(r'^api-prueba/', include('rest_framework.urls', namespace="rest_framework")),
     url(
     	regex=r'^media/(?P<path>.*)/$',
     	view=serve,
