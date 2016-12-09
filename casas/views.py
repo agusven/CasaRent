@@ -19,7 +19,7 @@ class CasaDetail(DetailView):
 class CasaCreation(CreateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
-	fields = ['dirección','municipio','teléfono','precio','servicios','recámaras','plantas','amueblada','cochera','patio','depósito','foto']
+	fields = ['direccion','municipio','telefono','precio','servicios','recamaras','plantas','amueblada','cochera','patio','deposito','foto']
 	template_name = 'casa/casa_form.html'
 
 	def form_valid(self, form):
@@ -30,7 +30,7 @@ class CasaCreation(CreateView):
 class CasaUpdate(UpdateView):
 	model = Casa
 	success_url = reverse_lazy('casas:list')
-	fields = ['dirección','municipio','teléfono','precio','servicios','recámaras','plantas','amueblada','cochera','patio','depósito','foto']
+	fields = ['direccion','municipio','telefono','precio','servicios','recamaras','plantas','amueblada','cochera','patio','deposito','foto']
 	template_name = 'casa/casa_form.html'
 
 @method_decorator(login_required, name='dispatch')

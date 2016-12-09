@@ -41,13 +41,21 @@ class Profile2(View):
 		return render(request, template_name, context)
 	def post(self, request):
 		template_name = "accounts/profile.html"
+		#persona = Profile.objects.get(user = request.user)
 		updateUser_form = EditUserForm(data=request.POST, instance=request.user)
 		updateProfile_form = EditProfileForm(data=request.POST, instance=request.user.profile, files=request.FILES)
-		if updateUser_form.is_valid() and updateProfile_form.is_valid():
+		print(updateProfile_form)
+		if updateUser_form.is_valid():
 			updateUser = updateUser_form.save(commit=False)
 			updateUser.save()
+			print("Salvado")
+		if updateProfile_form.is_valid():
 			updateProfile = updateProfile_form.save(commit=False)
+			print(updateProfile)
 			updateProfile.save()
+			print("Salbado")
+		else:
+			print("Fallo")
 			
 		return redirect('users:profile')
 

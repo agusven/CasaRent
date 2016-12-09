@@ -26,9 +26,9 @@ class EditUserForm(forms.ModelForm):
 
 class EditProfileForm(forms.ModelForm):
 	cellphone = forms.CharField(label="Teléfono")
-	date_birth = forms.CharField(label='Fecha de Nacimiento')
-	image_back = forms.ImageField(label = 'Foto de portada', widget=forms.FileInput(attrs={'class': 'imageprofile'}))
-	image_profile = forms.ImageField(label = 'Foto de perfil', widget=forms.FileInput(attrs={'class': 'imageprofile'}))
+	#date_birth = forms.CharField(label='Fecha de Nacimiento', widget=forms.TextInput(attrs={'required':'false'}))
+	image_back = forms.ImageField(label = 'Foto de portada', widget=forms.FileInput(attrs={'class': 'imageprofile','required':'false'}))
+	image_profile = forms.ImageField(label = 'Foto de perfil', widget=forms.FileInput(attrs={'class': 'imageprofile','required':'false'}))
 	class Meta:
 		model = Profile
-		fields = ['municipio','cellphone','date_birth', 'image_back', 'image_profile']
+		fields = ['municipio','cellphone','image_back', 'image_profile']
